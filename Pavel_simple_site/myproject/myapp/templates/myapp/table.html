@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Table Page</title>
+</head>
+<body>
+    <h1>Table Page</h1>
+
+    <form method="get">
+        <label>Sort By:</label>
+        <select name="sort_by" onchange="this.form.submit()">
+            <option value="">-- Select --</option>
+            <option value="name" {% if sort_by == 'name' %}selected{% endif %}>Name</option>
+            <option value="age" {% if sort_by == 'age' %}selected{% endif %}>Age</option>
+        </select>
+    </form>
+
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+        {% for name, age in data %}
+        <tr>
+            <td>{{ name }}</td>
+            <td>{{ age }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a href="{% url 'index' %}">Back to Home</a>
+</body>
+</html>

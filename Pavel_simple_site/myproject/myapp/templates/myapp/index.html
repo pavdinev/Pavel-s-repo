@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page</title>
+</head>
+<body>
+    <h1>Home Page</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" data-selector="text_button">Click Me</button>
+    </form>
+
+    {% if message %}
+        <p data-selector="button_message">{{ message }}</p>
+    {% endif %}
+
+    <a data-selector="url_button" href="{% url 'table' %}">Go to Table Page</a>
+</body>
+</html>
